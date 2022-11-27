@@ -1,0 +1,260 @@
+{
+    "techniques":[
+      {
+        "name": "Fastbin Dup",
+        "primitives": [
+          "double free"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/decrypt_safe_linking.c",
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/fastbin_dup.c",
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/fastbin_dup_into_stack.c"
+        ],
+        "notes":{
+          "header": "Notes:",
+          "bulletins": [
+            "tcache should be disabled or full"
+          ]
+        }
+      },
+      {
+        "name": "Fastbin Reverse Into tcache",
+        "primitives": [
+          "freeing control",
+          "allocation control",
+          "known-target-location",
+          "write-what-where",
+          "heap leak"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/fastbin_reverse_into_tcache.c"
+        ],
+        "notes":{
+          "header": "",
+          "bulletins": [
+            ""
+          ]
+        }
+      },
+      {
+        "name": "House of Botcake",
+        "primitives": [
+          "double free"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/house_of_botcake.c"
+        ],
+        "notes":{
+          "header": "",
+          "bulletins": [
+            ""
+          ]
+        }
+      },
+      {
+        "name": "House of Einherjar",
+        "primitives": [
+          "posion null byte",
+          "heap leak",
+          "fake chunk"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/house_of_einherjar.c"
+        ],
+        "notes":{
+          "header": "Also Requires:",
+          "bulletins": [
+            "Full tcache",
+            "Helps if we can force frees and allications."
+          ]
+        }
+      },
+      {
+        "name": "House of Lore",
+        "primitives": [
+          "fake chunk"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/house_of_lore.c"
+        ],
+        "notes":{
+          "header": "Notes:",
+          "bulletins": [
+            "Full tcache",
+            "Depending what bin you are targeting you'll need to bypass malloc security mechanisms pertaining to that bin; malloc.c is a good place to start when looking for what security mechanisms you need to bypass."
+          ]
+        }
+      },
+      {
+        "name": "House of Mind - Fastbin Variant",
+        "primitives": [
+          "infinite allocations",
+          "single byte bof",
+          "heap leak"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/house_of_mind_fastbin.c"
+        ],
+        "notes":{
+          "header": "Also Requires:",
+          "bulletins": [
+            "Fake non-main arena.",
+            "Fastbin only",
+            "No tcache or tcache filled",
+            "bof == buffer overflow"
+          ]
+        }
+      },
+      {
+        "name": "House of Spirit",
+        "primitives": [
+          "fake chunk",
+          "known target address"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/house_of_spirit.c"
+        ],
+        "notes":{
+          "header": "Also Requires:",
+          "bulletins": [
+            "Ability to set up the start/end of the target memory",
+            "Full tcache"
+          ]
+        }
+      },
+      {
+        "name": "Large Bin Attack",
+        "primitives": [
+          "relative overwrites",
+          "known target address"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/large_bin_attack.c"
+        ],
+        "notes":{
+          "header": "Notes",
+          "bulletins": [
+            "Since glibc2.30, two new checks have been enforced on large bin chunk insertion"
+          ]
+        }
+      },
+      {
+        "name": "Mmap Overlapping Chunks",
+        "primitives": [
+          "extremly large allocation request"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/mmap_overlapping_chunks.c"
+        ],
+        "notes":{
+          "header": "",
+          "bulletins": [
+            ""
+          ]
+        }
+      },
+      {
+        "name": "Overlapping Chunks",
+        "primitives": [
+          "heap overflow"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/overlapping_chunks.c"
+        ],
+        "notes":{
+          "header": "Notes",
+          "bulletins": [
+            "This new poc uses the same primitive as the previous one. Theoretically speaking, they are the same powerful."
+          ]
+        }
+      },
+      {
+        "name": "Poison Null Byte",
+        "primitives": [
+          "off-by-one",
+          "fake chunk"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/poison_null_byte.c"
+        ],
+        "notes":{
+          "header": "",
+          "bulletins": [
+            ""
+          ]
+        }
+      },
+      {
+        "name": "tcache House of Spirit",
+        "primitives": [
+          "fake chunk",
+          "known target address"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/tcache_house_of_spirit.c"
+        ],
+        "notes":{
+          "header": "",
+          "bulletins": [
+            ""
+          ]
+        }
+      },
+      {
+        "name": "tcache Poisoning",
+        "primitives": [
+          "known target address",
+          "freeing control",
+          "allocation control",
+          "heap leak"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/tcache_poisoning.c"
+        ],
+        "notes":{
+          "header": "",
+          "bulletins": [
+            ""
+          ]
+        }
+      },
+      {
+        "name": "tcache Stashing Unlink Attack",
+        "primitives": [
+          "relative overwrites",
+          "calloc",
+          "write-what-where",
+          "libc leak",
+          "fake chunk"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/tcache_stashing_unlink_attack.c"
+        ],
+        "notes":{
+          "header": "",
+          "bulletins": [
+            ""
+          ]
+        }
+      },
+      {
+        "name": "Unsafe Unlink",
+        "primitives": [
+          "known-target-location",
+          "can unlink",
+          "heap overflow",
+          "fake chunk"
+        ],
+        "urls": [
+          "https://github.com/shellphish/how2heap/blob/master/glibc_2.34/unsafe_unlink.c"
+        ],
+        "notes":{
+          "header": "Notes:",
+          "bulletins": [
+            "This technique can be used when you have a pointer at a known location to a region you can call unlink on.",
+            "We setup the size of our fake chunk so that we can bypass the check introduced."
+          ]
+        }
+      }
+    ]
+  }

@@ -1,0 +1,258 @@
+{
+    "techniques":[
+        {
+         "name": "Fastbin Dup",
+         "primitives": [
+            "double free"
+         ],
+         "urls": [
+            "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/fastbin_dup.c",
+            "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/fastbin_dup_consolidate.c",
+            "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/fastbin_dup_into_stack.c"
+        ],
+        "notes":{
+            "header": "",
+            "bulletins": [
+                ""
+            ]
+        }      
+        },
+        {
+            "name": "House of Einherjar",
+            "primitives": [
+                "posion null byte",
+                "heap leak"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/house_of_einherjar.c"
+            ],
+            "notes":{
+                "header": "",
+                "bulletins": [
+                    ""
+                ]
+            }       
+        },
+        {
+            "name": "House of Force",
+            "primitives": [
+                "heap overflow"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/house_of_force.c"
+            ],
+            "notes":{
+                "header": "",
+                "bulletins": [
+                    ""
+                ]
+            }      
+        },
+        {
+            "name": "House of Gods",
+            "primitives": [
+                "write after free",
+                "heap leak",
+                "libc leak"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/house_of_gods.c"
+            ],
+            "notes":{
+                "header": "Also Requires:",
+                "bulletins": [
+                    "Eight allocs of arbitrary size to hijack the arena (+2 for ACE).",
+                    "Control over first five quadwords of a chunk's userdata.",
+                    "The write after free must be done on an unsorted chunk."
+                ]
+            }  
+        },
+        {
+            "name": "House of Lore",
+            "primitives": [
+                "fake chunk"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/house_of_lore.c"
+            ],
+            "notes":{
+                "header": "Notes:",
+                "bulletins": [
+                    "Depending what bin you are targeting you'll need to bypass malloc security mechanisms pertaining to that bin; malloc.c is a good place to start when looking for what security mechanisms you need to bypass."
+                ]
+            }    
+        },
+        {
+            "name": "House of Mind - Fastbin Variant",
+            "primitives": [
+                "infinite allocations",
+                "single byte bof",
+                "heap leak"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/house_of_mind_fastbin.c"
+            ],
+            "notes":{
+                "header": "Also Requires:",
+                "bulletins": [
+                    "Fake non-main arena.",
+                    "Fastbin only",
+                    "bof == buffer overflow"
+                ]
+            }    
+        },
+        {
+            "name": "House of Roman",
+            "primitives": [
+                "write-what-where",
+                "unsorted bin attack",
+                "allocation control",
+                "freeing control",
+                "relative overwrites"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/house_of_roman.c"
+            ],
+            "notes":{
+                "header": "Notes:",
+                "bulletins": [
+                    "[CWE-123](https://cwe.mitre.org/data/definitions/123.html): Write-what-where (fastbins and main_arena for this picticular technique)."
+                ]
+            }    
+        },
+        {
+            "name": "House of Spirit",
+            "primitives": [
+                "fake chunk"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/house_of_spirit.c"
+            ],
+            "notes":{
+                "header": "Also Requires:",
+                "bulletins": [
+                    "The designer needs a known target memory address with write access so that they can orchestrate fake chunks."
+                ]
+            }    
+        },
+        {
+            "name": "House of Storm",
+            "primitives": [
+                "full tcache",
+                "unsorted bin attack",
+                "large bin attack",
+                "write-what-where"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/house_of_storm.c"
+            ],
+            "notes":{
+                "header": "Also Requires:",
+                "bulletins": [
+                    "The unsorted bin chunk MUST be larger than the large bin chunk.",
+                    "Careful heap feng shui.",
+                    "[CWE-123](https://cwe.mitre.org/data/definitions/123.html): Write-what-where (fastbins and main_arena for this picticular technique)."
+                ]
+            }    
+        },
+        {
+            "name": "Large Bin Attack",
+            "primitives": [
+                "relative overwrites"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/large_bin_attack.c"
+            ],
+            "notes":{
+                "header": "",
+                "bulletins": [
+                    ""
+                ]
+            }    
+        },
+        {
+            "name": "Mmap Overlapping Chunks",
+            "primitives": [
+                "extremly large allocation request"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/mmap_overlapping_chunks.c"
+            ],
+            "notes":{
+                "header": "",
+                "bulletins": [
+                    ""
+                ]
+            }    
+        },
+        {
+            "name": "Overlapping Chunks",
+            "primitives": [
+                "heap overflow"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/overlapping_chunks.c",
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/overlapping_chunks_2.c"
+            ],
+            "notes":{
+                "header": "",
+                "bulletins": [
+                    ""
+                ]
+            }    
+        },
+        {
+            "name": "Poison Null Byte",
+            "primitives": [
+                "disabled tcache",
+                "off-by-one"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/poison_null_byte.c"
+            ],
+            "notes":{
+                "header": "",
+                "bulletins": [
+                    ""
+                ]
+            }    
+        },
+        {
+            "name": "Unsafe Unlink",
+            "primitives": [
+                "known-target-location",
+                "can unlink",
+                "heap overflow",
+                "fake chunk"
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/unsafe_unlink.c"
+            ],
+            "notes":{
+                "header": "Notes:",
+                "bulletins": [
+                    "This technique can be used when you have a pointer at a known location to a region you can call unlink on."
+                ]
+            }    
+        },
+        {
+            "name": "Unsorted Bin Attack",
+            "primitives": [
+                "known-target-location",
+                "relative overwrites",
+                "freeing control",
+                "allocation control"            
+            ],
+            "urls": [
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/unsorted_bin_attack.c",
+                "https://github.com/shellphish/how2heap/blob/master/glibc_2.24/unsorted_bin_into_stack.c"
+            ],
+            "notes":{
+                "header": "",
+                "bulletins": [
+                    ""
+                ]
+            }    
+        }
+    ]
+}
