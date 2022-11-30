@@ -20,7 +20,7 @@
         {
             "name": "House of Einherjar",
             "primitives": [
-                "posion null byte",
+                "poison null byte",
                 "heap leak"
             ],
             "urls": [
