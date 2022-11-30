@@ -1,4 +1,4 @@
-# how2heapIndexerJSON
+# HeapSearch
 The JSON files I complied to use with this web app https://kissprogramming.com/heap/heap-search 
 
 ## Planned: 
