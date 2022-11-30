@@ -1,4 +1,4 @@
-# HeapSearch
+# Heap Search
 The JSON files I complied to use with this web app https://kissprogramming.com/heap/heap-search 
 
 ## Planned: 
